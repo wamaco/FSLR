@@ -124,3 +124,39 @@ Current app includes:
 4. Add static alphabet classifier pipeline.
 5. Replace placeholder app inference with deployed model calls.
 6. Add optional text-to-speech output.
+
+
+## Static Alphabet Workflow (Image Dataset)
+
+Dataset folder structure (label is taken from parent folder name, **not filename**):
+
+```text
+data/raw/static/A/
+data/raw/static/B/
+...
+data/raw/static/Z/
+```
+
+Preprocess static images into landmark CSV:
+
+```bash
+uv run python -m src.preprocess_static_images --input-dir data/raw/static --output-csv data/processed/static/static_landmarks.csv
+```
+
+Train static baseline model:
+
+```bash
+uv run python -m src.train_static --data data/processed/static/static_landmarks.csv
+```
+
+Preview webcam hand detection only:
+
+```bash
+uv run python -m src.live_static --preview-only
+```
+
+Run live static prediction:
+
+```bash
+uv run python -m src.live_static
+```
