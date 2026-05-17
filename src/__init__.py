@@ -11,5 +11,10 @@ __all__ = [
     "evaluate",
     "predict",
     "live_static",
+    "dataset",
+    "model",
+    "train",
+    "evaluate",
+    "predict",
     "app",
 ]
